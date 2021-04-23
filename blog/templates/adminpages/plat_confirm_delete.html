@@ -1,0 +1,52 @@
+{% extends "adminpages/base.html" %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+   
+{% block title %}home page{% endblock title %}
+	
+	{% block content %}
+	<p>
+		are you show you want to delete the plat
+	</p>
+
+
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" action="" value="Yes, delete."/>
+  </form>
+		<!-- <h1 class="text-center">Add a plat</h1><hr>
+		<div class="col-md-6 mx-auto">
+       
+		<form action="{% url 'blog:delete' pk=plat.id %}" method="post">		
+         {% csrf_token %}
+    		<div class="form-group">
+                <input class="rounded-pill " type="submit" value="confirm">
+    		</div> 
+        </div>
+        </form>  -->
+
+<!-- 
+  <div class="panel-footer">
+  <a type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-envelope"></i></a>
+    <span class="pull-right">
+      <a href="{% url 'blog:update' pk=plat.id %}" type="button" class="btn btn-small btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+      <form action="{% url 'blog:delete' pk=plat.id %}" method="post" style="display: inline;">
+          {% csrf_token %}
+          <input type="hidden" name="plat_id" value="confirm"/>
+               <button type="submit" class="btn btn-danger btn-small">
+                   <span class="glyphicon glyphicon-trash"></span>
+                </button>
+        </form>
+     </span>
+   </div> 
+
+
+
+
+   <form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="Confirm" />
+</form>   -->
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+<!-- <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> -->
+<link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+
+{% block title %}customerprofil{% endblock %}
+
+{% block body %}
+<h1 class="text-center m-4">Profil de <strong>{{ request.user.username}} </strong></h1>
+<hr>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<h3 class="text-center">Detail informations</h3>
+			<hr>
+			<p><span class="font-weight-bold">Name : </span>{{customer.full_name}}</p>
+			<p><span class="font-weight-bold">Username : </span>{{customer.user.username}}</p>
+			<p><span class="font-weight-bold">Email : </span>{{customer.user.email}}</p>
+			<p><span class="font-weight-bold">Adress : </span>{{customer.address}}</p>
+			<p><span class="font-weight-bold">joined_on : </span>{{customer.joined_on}}</p>
+		</div>
+
+		<div class="col-md-8">
+			<h3 class="text-center">Previous orders</h3>
+			<hr>
+			<table class="table">
+				<thead>
+					<tr>
+					<th>SN</th>
+					<th>Order</th>
+					<th>Amount</th>
+					<th>Orderd_on</th>
+					<th>Status</th>					
+				</tr>					
+				</thead>
+				<tbody>
+					{% for order in orders %}
+					<tr>
+						<td>{{ forloop.counter }}</td>
+						<td ><a href="{% url 'blog:customerorderdetail' order.id %}">#ORDER{{order.id}}</a></td>
+						<td>{{order.total}}</td>
+						<td>{{order.createdat|timesince}}ago</td>
+						<td>{{order.order_status}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+				
+			</table>
+			
+		</div>
+	</div>
+</div>
+    
+
+   <!--  <a href=""><i class="fas fa-user"></i>le profil</a> -->
+  
+
+
+{% endblock %}

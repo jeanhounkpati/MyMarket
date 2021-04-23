@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}show{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center mb-4"><strong>{{plat.title}}</strong></h1><hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{plat.image.url}}" alt="" width="250" height="200">      
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-center mb-4">{{plat.title}}</h3>
+                <p class="btn btn-primary">Price: Rs.{{plat.selling_price}}</p> 
+                <p>{{plat.description}}</p>
+                <a href="{% url 'blog:cart' plat.id %}" class="btn btn-success">add to cart</a><hr>
+                {% if request.user.admin %}
+                <a href="{% url 'blog:plat-update' plat.id %}" class="btn btn-warning">Update</a>
+                <a href="{% url 'blog:plat-delete' plat.id %}"class="btn btn-danger">Delete</a>
+                {% endif %}
+                
+
+
+
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+

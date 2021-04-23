@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+
+{% block title %}home{% endblock %}
+
+{% block body %}
+    
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-12">
+    			<h1 class="text-center ">search for "<span class="text-info">{{request.GET.keyword}}</span>"</h1>
+    			<hr>
+    		</div>    		    		
+    		{% for result in results %}
+    		<div class="row">
+    			<div class="col-md-4">
+    				<img src="{{result.image.url}}" class="img-fluid" alt="">
+    				<p>{{result.description}}</p>
+    				<a href="{% url 'blog:cart' result.id %}" class="btn btn-success">add to cart</a><hr>
+    			</div>
+    		</div>
+    		{% endfor%}
+
+    	</div>
+    </div>
+
+{% endblock %}

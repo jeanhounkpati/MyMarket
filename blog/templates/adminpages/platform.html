@@ -1,0 +1,157 @@
+{% extends "adminpages/base.html" %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+   
+{% block title %}home page{% endblock title %}
+	
+	{% block content %}
+		<h1 class="text-center">Add a plat</h1>
+       <div class="col-md-10 mx-auto">
+		<form action="" method="post" enctype="multipart/form-data">		
+         {% csrf_token %}
+        	
+         	<div class="col-md-10 mx-auto p-2">
+         	 {{ form.title.label}}		    	
+		    	{{ form.title}}
+		    </div>
+		  	
+
+		    <div class="col-md-10 mx-auto p-2">
+		    	{{ form.description.label}}
+		        {{ form.description }}
+		    </div>
+		   
+	
+		     <div class="col-md-10 mx-auto p-2"> 
+		     	{{ form.selling_price.label}}  
+		     	{{ form.selling_price }}
+	         </div>
+	         	
+
+	         <div class="col-md-10 mx-auto p-2">
+	         	{{ form.slug.label}}
+		        {{ form.slug }}
+	         </div>
+
+
+		    <div class="col-md-10 mx-auto p-2">
+		    	{{ form.image.label}}
+		    	{{ form.image }}
+		   	</div>
+		    	 
+            <div class="col-md-8 mx-auto p-2 d-flex justify-content-center d-flex justify-content-center">
+            	<button   type="submit" class="col-md-10 btn btn-success ">create a plat</button>	
+            </div>
+                   
+        </form>
+        </div> 
+		{% endblock %}
+		 	
+<!--  <a href="{% url 'blog:ckeckoutform' %}" class="btn btn-warning">checkoutform</a> --> 
+
+ <!-- <div class="row-md-3">
+    <div class="form-group "> -->
+	                       
+ <!-- main>
+			<h1 class='text-center'>WELCOME</h1>
+			<article>
+				<div class="menu_content">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Mon panier</a></li>
+						<li><a href="#">Categories</a></li>
+						<li><a href="#">logout</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+			</article>
+			<h2 class="text-center p-3">NOS MENUS</h2>
+			<div class="row">
+				<a href="" class="col-md-3 rounded first">
+					<div >
+						<img src="{% static 'img/1.jpg' %}">
+						<button type="submit" class="btn btn-success">Ajouter</button>
+						<p>title</p>
+						<p>description</p>
+					</div>
+			
+				</a>
+				<a href="" class="col-md-3 rounded second">
+					<div>
+						<img src="{% static 'img/2.jpg' %}">
+						<button type="submit" action='home' class="btn btn-success">Ajouter</button>
+						<p>titre</p>
+						<p>description</p>
+					</div>
+			
+				</a>
+			
+				<a href="" class="col-md-3 rounded third">
+					<div>
+						<img src="{% static 'img/3.jpg' %}">
+						<button type="submit" class="btn btn-success">Ajouter</button>
+						<p>titre</p>
+						<p>description</p>
+					</div>
+			
+				</a>
+					
+				<a href="" class="col-md-3 rounded fourth">
+					<div >
+						<img src="{% static 'img/4.jpg' %}">
+						<button type="submit" class="btn btn-success">Ajouter</button>
+						<p>titre</p>
+						<p>description</p>
+					</div>
+			
+				</a>
+			</div>
+			<div class="row">
+				<a href="" class="col-md-3 rounded fifth">
+					<div>
+						<img src="{% static 'img/5.jpg' %}">
+						<button type="submit" class="btn btn-success">Ajouter</button>
+						<p>titre</p>
+						<p>description</p>
+					</div>
+			
+				</a>
+				<a href="" class= "col-md-3 rounded sixth">
+					<div>
+						<img src="{% static 'img/6.jpg' %}">
+						<button type="submit" class="btn btn-success">Ajouter</button>
+						<p>titre</p>
+						<p>description</p>
+					</div>
+				</a>
+				<a href="" class="col-md-3  rounded seventh">
+					<div>
+						<img src="{% static 'img/7.jpg' %}">
+						<button type="submit" class="btn btn-success">Ajouter</button>
+						<p>titre:{{Plat.title}</p>
+						<p>description: {{Plat.description}}</p>
+					</div>
+			
+				</a>
+				<a href="" class="col-md-3 rounded eight">
+					<div >
+						<img src="{% static 'img/8.jpg' %}">
+						<button type="submit" class="btn btn-success">Ajouter</button>
+						<p>titre</p>
+						<p>description</p>
+					</div>
+			
+				</a>
+
+			</div>
+		</main>
+
+
+
+
+ -->
+
+
+
+

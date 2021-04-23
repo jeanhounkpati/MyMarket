@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+
+{% block title %}cart{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="row"> 
+  <div class="col-md-8"> 
+  <h1 class="text-center">voici votre cart</h1> 
+    <p>{{cart.cartplat.quantity}}</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sn</th>
+      <th scope="col">Plat</th>
+      <th scope="col">Rate</th>
+      <th scope="col">Quantity</th>
+       <th scope="col">Subtotal</th>
+        <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cp in cart.cartplat_set.all %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{cp.plat.title}}</td>
+      <td>{{cp.rate}}</td>
+      <td>{{cp.quantity}}</td>
+      <td>{{cp.subtotal}}</td>
+        <td>
+         <a href="{% url 'blog:managecart' cp.id %}?action=inc" class="btn btn-primary"> + </a>
+         <a href="{% url 'blog:managecart' cp.id %}?action=dcr" class="btn btn-warning"> - </a>
+         <a href="{% url 'blog:managecart' cp.id %}?action=rmv" class="btn btn-danger"> x </a>
+         
+        </td>
+
+    </tr>
+    {% endfor %}
+    <tr>
+      <th colspan="4" class="text-right">Total</th>
+      <th>{{cart.total}}</th>
+      {% if cart.cartplat_set.all %}
+      <th> 
+        <a href="{% url 'blog:emptycart' %}"class="btn btn-info">Empty cart</a>
+      </th>
+     {% endif %}
+          
+    </tr>
+    {% if cart.cartplat_set.all %}
+    <tr>
+      <th>
+        <a href="{% url 'blog:checkoutform' %}"class="btn btn-secondary">Checkout</a>
+      </th>    
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+</div>
+</div> 
+</div>
+	
+{% endblock %}
+		

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+
+{% block title %}home{% endblock %}
+
+{% block body %}  
+<div class="container">
+     <h1 class="text-center m-4">welcome <strong>{{ request.user.username}} </strong>to UrcaDelima fastfood</h1>
+     <hr>
+    <div class="row">
+        {% for plat in plats %}
+        <div class="col-md-3">
+            <h3>{{plat.title}}</h3>   
+            <img src="{{plat.image.url}}" alt="" width="250" height="200">
+            <p>price:Rs.{{plat.selling_price}}</p>
+            <p><a href="{% url 'blog:show' plat.id %}">{{plat.description|truncatewords:2}}</a></p>
+            <a href="{% url 'blog:cart' plat.id %}" class="btn btn-success">add to cart</a>
+            
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+    

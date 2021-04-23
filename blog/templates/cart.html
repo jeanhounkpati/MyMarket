@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+
+{% block title %}home{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">add to the cart succesfully</h1>
+    {{cart_obj}}
+
+{% endblock %}
